@@ -168,6 +168,85 @@
   transform: translateY(0);
 }
 
+
+    /* =========================
+   MODE SUPER-RINGKAS (HP)
+   ========================= */
+@media (max-width: 480px) {
+
+  /* HEADER LEBIH PENDEK */
+  .header {
+    height: 140px;
+  }
+
+  /* PROFIL */
+  .profile {
+    margin-top: -50px;
+  }
+
+  .logo {
+    width: 84px;
+    height: 84px;
+    border-width: 4px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  /* SECTION */
+  .section {
+    margin-top: 30px;
+  }
+
+  .section-title {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .section-title::after {
+    width: 42px;
+    height: 2px;
+  }
+
+  /* GRID JADI 1 KOLOM */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* BUTTON SUPER-RINGKAS */
+  .btn {
+    padding: 14px 14px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 12px;
+  }
+
+  .btn i {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .btn span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .btn:hover {
+    transform: none;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  }
+}
+
+
   </style>
 </head>
 
