@@ -168,6 +168,32 @@
   transform: translateY(0);
 }
 
+/* =========================
+   FOOTER
+   ========================= */
+.footer {
+  margin-top: 60px;
+  padding: 26px 16px;
+  background: #f3f4f6;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.footer-content {
+  font-size: 13px;
+  color: #666;
+  letter-spacing: .2px;
+}
+
+.footer-content strong {
+  color: #444;
+  font-weight: 600;
+}
+
+.footer .divider {
+  margin: 0 6px;
+  color: #bbb;
+}
 
     /* =========================
    MODE SUPER-RINGKAS (HP)
@@ -245,6 +271,21 @@
     box-shadow: 0 6px 14px rgba(0,0,0,0.08);
   }
 }
+@media (max-width: 480px) {
+  .footer {
+    margin-top: 40px;
+    padding: 20px 12px;
+  }
+
+  .footer-content {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .footer .divider {
+    display: none;
+  }
+}
 
 
   </style>
@@ -318,6 +359,14 @@
 
   sections.forEach(section => observer.observe(section));
 </script>
+
+  <footer class="footer">
+  <div class="footer-content">
+    <span>© 2025 SMA Negeri 6 Surakarta</span>
+    <span class="divider">•</span>
+    <span>Powered by <strong>SantMedia</strong></span>
+  </div>
+</footer>
 
 </body>
 </html>
