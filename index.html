@@ -77,20 +77,34 @@
 .section-title::after {
   content: "";
   display: block;
-  width: 56px;
+  width: 36px;
   height: 3px;
-  background: #4f7cff;
   margin: 10px auto 0;
   border-radius: 2px;
+  background: currentColor;
+  transition: width .3s ease;
 }
+
+.section-title:hover::after {
+  width: 64px;
+}
+
+    .section-title.blue   { color: #4f7cff; }
+.section-title.green  { color: #2fa36b; }
+.section-title.orange { color: #f59e0b; }
+.section-title.purple { color: #7c3aed; }
+
 
 
     /* GRID */
     .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 
     /* BUTTON BASE */
     .btn {
@@ -142,6 +156,18 @@
     @media (max-width: 500px) {
       .grid { grid-template-columns: 1fr; }
     }
+
+    .section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 
@@ -198,6 +224,19 @@
     </div>
 
   </div>
+    <script>
+  const sections = document.querySelectorAll('.section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
