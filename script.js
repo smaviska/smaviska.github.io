@@ -26,3 +26,13 @@ window.addEventListener("scroll", () => {
     title.classList.toggle("is-sticky", title.getBoundingClientRect().top <= 0);
   });
 });
+// =========================
+// MOBILE TAP FEEDBACK
+// =========================
+document.querySelectorAll(".btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(20);
+    }
+  });
+});
