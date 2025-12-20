@@ -36,3 +36,15 @@ document.querySelectorAll(".btn").forEach(btn => {
     }
   });
 });
+
+// =========================
+// SPLASH SCREEN
+// =========================
+window.addEventListener("load", () => {
+  const splash = document.getElementById("splash");
+
+  setTimeout(() => {
+    splash.classList.add("hide");
+  }, 1800);
+});
+
