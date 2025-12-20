@@ -1,0 +1,28 @@
+// =========================
+// SECTION FADE-IN
+// =========================
+const sections = document.querySelectorAll(".section");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+sections.forEach((section) => observer.observe(section));
+
+// =========================
+// STICKY TITLE SHADOW
+// =========================
+const titles = document.querySelectorAll(".section-title");
+
+window.addEventListener("scroll", () => {
+  titles.forEach((title) => {
+    title.classList.toggle("is-sticky", title.getBoundingClientRect().top <= 0);
+  });
+});
