@@ -298,6 +298,22 @@ body {
   text-align: center;
 }
 
+/* INFO PENTING */
+.info-penting {
+    text-align: center;
+}
+
+.info-image-wrapper {
+    margin-top: 15px;
+}
+
+.info-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
 .footer-content {
   font-size: 13px;
   color: #cbd5f5;
