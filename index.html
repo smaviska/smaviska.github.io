@@ -1,351 +1,220 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scatter Regression Studio</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIPANDA | SMA Negeri 6 Surakarta</title>
 
-<style>
-*{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:'Inter','Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#667eea,#764ba2);
-    transition:.3s;
-    color:#1e293b;
-}
-.dark{
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    color:white;
-}
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 25px;
-    color:white;
-    flex-wrap:wrap;
-}
-
-.header-left{
-    display:flex;
-    flex-direction:column;
-}
-
-.header-title{
-    font-size:22px;
-    font-weight:600;
-}
-
-.header-sub{
-    font-size:13px;
-    opacity:0.9;
-    margin-top:4px;
-}
-
-.toggle-dark{
-    background:white;
-    padding:6px 14px;
-    border-radius:20px;
-    cursor:pointer;
-    font-size:12px;
-    font-weight:500;
-}
-
-.dark .toggle-dark{
-    background:#334155;
-    color:white;
-}
-.toggle-dark{
-    position:absolute;
-    top:20px;
-    right:30px;
-    background:white;
-    padding:6px 12px;
-    border-radius:20px;
-    cursor:pointer;
-    font-size:12px;
-}
-.dark .toggle-dark{
-    background:#334155;
-    color:white;
-}
-.container{
-    display:flex;
-    gap:25px;
-    padding:25px;
-    max-width:1300px;
-    margin:auto;
-}
-.panel{
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(10px);
-    border-radius:16px;
-    padding:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.15);
-}
-.dark .panel{
-    background:rgba(30,41,59,0.92);
-}
-.left{width:360px}
-.right{flex:1;display:flex;flex-direction:column}
-h2{margin-top:0;font-size:17px}
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-bottom:10px;
-}
-th{
-    background:#f1f5f9;
-    padding:8px;
-    font-size:12px;
-}
-.dark th{background:#334155}
-td{padding:6px}
-input{
-    width:100%;
-    padding:6px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    font-size:13px;
-}
-button{
-    width:100%;
-    padding:9px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    margin-top:8px;
-    font-weight:500;
-}
-.btn-green{background:#10b981;color:white}
-.btn-primary{background:#2563eb;color:white}
-.btn-reset{background:#ef4444;color:white}
-.stats{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:10px;
-}
-.stat-box{
-    background:rgba(0,0,0,0.05);
-    padding:10px;
-    border-radius:10px;
-    font-size:13px;
-}
-.dark .stat-box{
-    background:rgba(255,255,255,0.1);
-}
-.chart-container{
-    flex:1;
-    min-height:450px;
-}
-@media(max-width:900px){
-    .container{flex-direction:column}
-    .left{width:100%}
-}
-</style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <div class="header-left">
-        <div class="header-title">Scatter Regression Studio</div>
-        <!-- <div class="header-sub">By Wahyu Wijayanti</div> -->
+  <!-- HERO / BANNER -->
+  <div class="hero">
+    <div class="hero-image">
+      <img src="banner.png" alt="SMA Negeri 6 Surakarta">
+      <div class="hero-overlay"></div>
     </div>
-    <div class="toggle-dark" onclick="toggleDark()">🌙 Dark Mode</div>
-</header>
-<div class="toggle-dark" onclick="toggleDark()">🌙 Dark Mode</div>
 
-<div class="container">
-
-<div class="panel left">
-<h2>Input Data</h2>
-
-<table id="dataTable">
-<thead>
-<tr><th>X</th><th>Y</th></tr>
-</thead>
-<tbody></tbody>
-</table>
-
-<button class="btn-green" onclick="addRow()">Tambah Data</button>
-<button class="btn-primary" onclick="generateChart()">Tampilkan Diagram</button>
-<button class="btn-reset" onclick="resetAll()">Reset</button>
-
-<div class="stats">
-<div class="stat-box">Data: <span id="count">0</span></div>
-<div class="stat-box">Slope: <span id="slope">-</span></div>
-<div class="stat-box">Intercept: <span id="intercept">-</span></div>
-<div class="stat-box">R²: <span id="r2">-</span></div>
-<div class="stat-box" style="grid-column:1/3;">
-Persamaan: <span id="equation">-</span>
-</div>
-</div>
+    <div class="hero-text">
+    <h1>SIPANDA SMAVISKA</h1>
+    <h4>Sistem Informasi & Pelayanan Data</h4>
+     <!-- <h1>SMA Negeri 6 Surakarta</h1>    -->
+  <div class="hero-school">SMA Negeri 6 Surakarta</div>
 
 </div>
 
-<div class="panel right">
-<h2>Visualisasi</h2>
-<div class="chart-container">
-<canvas id="scatterChart"></canvas>
+
+    <div class="hero-logo">
+      <img src="logo.png" alt="Logo SMA Negeri 6 Surakarta">
+    </div>
+  </div>
+
+
+
+    <!-- BAGIAN 1 -->
+    <div class="section">
+        <div class="section-title">Dokumen Sekolah</div>
+        <div class="menu-container menu-3">
+            <a href="https://smaviska.github.io/tugas-tambahan/" class="menu-item">
+                <div class="menu-icon" style="background:#2563eb;">📄</div>
+                <div class="menu-title">SK Pembagian Tugas</div>
+            </a>
+            <a href="#" class="menu-item">
+                <div class="menu-icon" style="background:#16a34a;">📘</div>
+                <div class="menu-title">Kurikulum Satuan Pendidikan</div>
+            </a>
+            <a href="#" class="menu-item">
+                <div class="menu-icon" style="background:#9333ea;">📝</div>
+                <div class="menu-title">Rencana Pembelajaran</div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- BAGIAN 2 -->
+    <div class="section">
+        <div class="section-title">Data Guru dan Siswa</div>
+        <div class="menu-container menu-3">
+            <a href="https://script.google.com/macros/s/AKfycbyCHpDwLcWoSIDWETjcpuQJ_4ahCKz8zIldRVsxiZxxsFaqhngIPPy_OBz89PgZq8M/exec" class="menu-item">
+                <div class="menu-icon" style="background:#0ea5e9;">👨‍🏫</div>
+                <div class="menu-title">Data Guru</div>
+            </a>
+            <a href="https://script.google.com/macros/s/AKfycbwVEcdS1oQClXrjYa_8o_79ciiGJocjuiYkEAlLfEbgVpSKmY9rF3DY9mO_lvveSMo-/exec" class="menu-item">
+                <div class="menu-icon" style="background:#f97316;">🧑‍💼</div>
+                <div class="menu-title">Data Karyawan</div>
+            </a>
+            <a href="https://script.google.com/macros/s/AKfycbxk5-J0mGRi21GtBs2dIzSs1jMEMfLP_69eHCgtGY0qRb8ZupGjGCIvV0RgXmJ0YrK0/exec" class="menu-item">
+                <div class="menu-icon" style="background:#22c55e;">🎓</div>
+                <div class="menu-title">Data Siswa</div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- BAGIAN 3 -->
+    <div class="section">
+        <div class="section-title">SMAVISKA Update</div>
+        <div class="menu-container menu-3">
+          <a href="https://epresensi.sman6surakarta.sch.id/" class="menu-item">
+                <div class="menu-icon" style="background:#16a34a;">🧑‍🎓</div>
+            <div class="menu-title">Presensi Siswa</div>
+            </a>
+            <a href="https://smaviska.github.io/agenda/" class="menu-item">
+                <div class="menu-icon" style="background:#0284c7;">📆</div>
+                <div class="menu-title">Agenda Sekolah</div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/15EpG6y0XXcpa8z-IXLYsnjdS9QljVDvGs6ds0e4j6_g/edit?usp=sharing" class="menu-item">
+                <div class="menu-icon" style="background:#eab308;">🏆</div>
+                <div class="menu-title">Prestasi Siswa</div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- BAGIAN 4 -->
+    <div class="section">
+        <div class="section-title">Branding Sekolah</div>
+        <div class="menu-container menu-3">
+            <a href="https://drive.google.com/drive/folders/1FCj6b8eicQu0xZ4r4IQzENBl5no87EAU?usp=sharing" class="menu-item">
+                <div class="menu-icon" style="background:#22c55e;">🌱</div>
+                <div class="menu-title">Sekolah Adiwiyata</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1FCj6b8eicQu0xZ4r4IQzENBl5no87EAU?usp=sharing" class="menu-item">
+                <div class="menu-icon" style="background:#8b5cf6;">🎭</div>
+                <div class="menu-title">Sekolah Adipangastuti</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1FCj6b8eicQu0xZ4r4IQzENBl5no87EAU?usp=sharing" class="menu-item">
+                <div class="menu-icon" style="background:#0f766e;">🛡️</div>
+                <div class="menu-title">Sekolah Berintegritas</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1FCj6b8eicQu0xZ4r4IQzENBl5no87EAU?usp=sharing" class="menu-item">
+                <div class="menu-icon" style="background:#ec4899;">🤝</div>
+                <div class="menu-title">Sekolah Ramah Anak</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1FCj6b8eicQu0xZ4r4IQzENBl5no87EAU?usp=sharing" class="menu-item">
+                <div class="menu-icon" style="background:#0284c7;">👨‍👩‍👧</div>
+                <div class="menu-title">Sekolah Siaga Kependudukan</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1FCj6b8eicQu0xZ4r4IQzENBl5no87EAU?usp=sharing" class="menu-item">
+                <div class="menu-icon" style="background:#16a34a;">💊</div>
+                <div class="menu-title">Sekolah Sehat</div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- BAGIAN 5 -->
+    <div class="section">
+        <div class="section-title">Ekinerja</div>
+        <div class="menu-container menu-3">
+            <a href="https://asndigital.bkn.go.id" class="menu-item">
+                <div class="menu-icon" style="background:#1d4ed8;">🏛️</div>
+                <div class="menu-title">Ekinerja BKN</div>
+            </a>
+            <a href="https://guru.kemendikdasmen.go.id/pengelolaan-kinerja" class="menu-item">
+                <div class="menu-icon" style="background:#0f766e;">📊</div>
+                <div class="menu-title">Pengelolaan Kinerja (RGTK)</div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- BAGIAN 6 -->
+    <div class="section">
+        <div class="section-title">Media Sosial Sekolah</div>
+        <div class="menu-container menu-4">
+
+            <!-- WEBSITE -->
+            <a href="https://sman6surakarta.sch.id/" class="menu-item">
+                <div class="menu-icon icon-web">
+                    🌐
+                </div>
+                <div class="menu-title">Website</div>
+            </a>
+
+            <!-- YOUTUBE -->
+            <a href="https://www.youtube.com/@sma6surakartasolo513" class="menu-item">
+                <div class="menu-icon icon-youtube">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <!-- Rounded rectangle -->
+                        <path fill="white"
+                            d="M23.5 6.5s-.2-1.8-.9-2.6c-.9-.9-1.9-.9-2.4-1C16.9 2.5 12 2.5 12 2.5s-4.9 0-8.2.4c-.5.1-1.5.1-2.4 1C.7 4.7.5 6.5.5 6.5S0 8.6 0 10.8v2.4c0 2.2.5 4.3.5 4.3s.2 1.8.9 2.6c.9.9 2.1.9 2.6 1 1.9.2 8 .4 8 .4s4.9 0 8.2-.4c.5-.1 1.5-.1 2.4-1 .7-.8.9-2.6.9-2.6s.5-2.1.5-4.3v-2.4c0-2.2-.5-4.3-.5-4.3z" />
+                        <!-- Play triangle -->
+                        <path fill="#ff0000" d="M9.75 8.25v7.5L16.5 12 9.75 8.25z" />
+                    </svg>
+                </div>
+
+                <div class="menu-title">YouTube</div>
+            </a>
+
+            <!-- INSTAGRAM -->
+            <a href="https://www.instagram.com/sman_6_surakarta_official/" class="menu-item">
+                <div class="menu-icon icon-instagram">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path
+                            d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.4A2.9 2.9 0 1 1 14.9 12 2.9 2.9 0 0 1 12 14.9zm4.7-7.9a1.05 1.05 0 1 0 1.05 1.05A1.05 1.05 0 0 0 16.7 7z" />
+                    </svg>
+                </div>
+                <div class="menu-title">Instagram</div>
+            </a>
+
+            <!-- TIKTOK -->
+            <!-- <a href="#" class="menu-item">
+                <div class="menu-icon icon-tiktok">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path
+                            d="M12.5 2h3c.3 1.8 1.3 3.3 2.9 4.2 1 .6 2.1 1 3.1 1.1v3.1c-1.6 0-3.1-.4-4.5-1.1v6.2c0 3.5-2.9 6.4-6.4 6.4S4.2 19 4.2 15.5 7 9.1 10.6 9.1c.5 0 1 .1 1.4.2v3.3c-.4-.2-.8-.3-1.3-.3-1.7 0-3.1 1.4-3.1 3.1s1.4 3.1 3.1 3.1 3.1-1.4 3.1-3.1V2z" />
+                    </svg>
+                </div>
+                <div class="menu-title">TikTok</div>
+            </a> -->
+
+        </div>
+    </div>
+
+<!-- BAGIAN INFO PENTING -->
+<div class="section info-penting">
+    <div class="section-title">INFO PENTING</div>
+    <div class="info-image-wrapper">
+        <img src="info1.jpeg" alt="Info Penting SNBP 2026" class="info-image">
+    </div>
 </div>
-</div>
 
-</div>
 
-<script>
+  
+  <footer class="footer">
+        <div class="footer-content">
+            <span>© 2025 SMA Negeri 6 Surakarta</span>
+            <span class="divider">•</span>
+            <span>Powered by <strong>SantMedia</strong></span>
+        </div>
+    </footer>
 
-let chartInstance=null;
-let lastData=null;
-function createInitialRows(){
-    const tbody = document.querySelector("#dataTable tbody");
-    tbody.innerHTML = "";
 
-    for(let i=0; i<10; i++){
-        const row = tbody.insertRow();
-        row.innerHTML = `
-            <td><input type="number" step="any"></td>
-            <td><input type="number" step="any"></td>
-        `;
-    }
-}
-function toggleDark(){
-    document.body.classList.toggle("dark");
-    if(lastData) generateChart();
-}
-
-function addRow(){
-    const row=document.querySelector("#dataTable tbody").insertRow();
-    row.innerHTML=`<td><input type="number"></td>
-                   <td><input type="number"></td>`;
-}
-
-function resetAll(){
-    createInitialRows();
-
-    if(chartInstance) chartInstance.destroy();
-
-    document.getElementById("count").innerText=0;
-    document.getElementById("slope").innerText="-";
-    document.getElementById("intercept").innerText="-";
-    document.getElementById("r2").innerText="-";
-    document.getElementById("equation").innerText="-";
-    lastData=null;
-}
-
-function generateChart(){
-
-    const rows=document.querySelectorAll("#dataTable tbody tr");
-    let data=[];
-
-    rows.forEach(r=>{
-        const x=parseFloat(r.cells[0].children[0].value);
-        const y=parseFloat(r.cells[1].children[0].value);
-        if(!isNaN(x)&&!isNaN(y)) data.push({x,y});
-    });
-
-    if(data.length<2){
-        alert("Minimal 2 data diperlukan");
-        return;
-    }
-
-    lastData=data;
-
-    const isDark=document.body.classList.contains("dark");
-    const axisColor=isDark ? "#ffffff" : "#1e293b";
-    const gridColor=isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)";
-
-    const n=data.length;
-    let sumX=0,sumY=0,sumXY=0,sumXX=0,sumYY=0;
-
-    data.forEach(p=>{
-        sumX+=p.x;
-        sumY+=p.y;
-        sumXY+=p.x*p.y;
-        sumXX+=p.x*p.x;
-        sumYY+=p.y*p.y;
-    });
-
-    const slope=(n*sumXY-sumX*sumY)/(n*sumXX-sumX*sumX);
-    const intercept=(sumY-slope*sumX)/n;
-    const r2=Math.pow((n*sumXY-sumX*sumY)/
-        Math.sqrt((n*sumXX-sumX*sumX)*(n*sumYY-sumY*sumY)),2);
-
-    document.getElementById("count").innerText=n;
-    document.getElementById("slope").innerText=slope.toFixed(4);
-    document.getElementById("intercept").innerText=intercept.toFixed(4);
-    document.getElementById("r2").innerText=r2.toFixed(4);
-    document.getElementById("equation").innerText=
-        "ŷ = "+slope.toFixed(4)+"X + "+intercept.toFixed(4);
-
-    const minX=Math.min(...data.map(p=>p.x));
-    const maxX=Math.max(...data.map(p=>p.x));
-    const minY=Math.min(...data.map(p=>p.y));
-    const maxY=Math.max(...data.map(p=>p.y));
-    const padding=(maxY-minY)*0.1 || 1;
-
-    const regression=[
-        {x:minX,y:slope*minX+intercept},
-        {x:maxX,y:slope*maxX+intercept}
-    ];
-
-    if(chartInstance) chartInstance.destroy();
-
-    chartInstance=new Chart(document.getElementById("scatterChart"),{
-        type:'scatter',
-        data:{
-            datasets:[
-                {
-                    label:'Data',
-                    data:data,
-                    backgroundColor:'#3b82f6',
-                    pointRadius:6
-                },
-                {
-                    label:'Regresi',
-                    data:regression,
-                    type:'line',
-                    borderColor:'#ef4444',
-                    borderWidth:2,
-                    fill:false
-                }
-            ]
-        },
-        options:{
-            responsive:true,
-            maintainAspectRatio:false,
-            scales:{
-                x:{
-                    type:'linear',
-                    position:'bottom',
-                    ticks:{color:axisColor},
-                    title:{display:true,text:"X",color:axisColor},
-                    grid:{color:gridColor}
-                },
-                y:{
-                    min:minY-padding,
-                    max:maxY+padding,
-                    ticks:{color:axisColor},
-                    title:{display:true,text:"Y",color:axisColor},
-                    grid:{color:gridColor}
-                }
-            },
-            plugins:{
-                legend:{
-                    labels:{color:axisColor}
-                }
-            }
-        }
-    });
-
-}
-window.onload = function(){
-    createInitialRows();
-};
-</script>
-
+<!-- JS -->
+  <script src="script.js"></script>
 </body>
+
 </html>
